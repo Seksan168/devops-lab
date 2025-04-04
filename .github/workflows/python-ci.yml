@@ -1,0 +1,27 @@
+# .github/workflows/python-ci.yml
+
+name: Python CI
+
+on: [push]  # รัน workflow เมื่อมีการ push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'  # หรือเวอร์ชันอื่นที่ต้องการ
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run tests
+      run: |
+        pytest
