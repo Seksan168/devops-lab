@@ -1,5 +1,6 @@
 import unittest
-from app.calculator import add, subtract,divide , multiply
+
+from app.calculator import add,subtract,multiply,divide
 
 class TestCalculator(unittest.TestCase):
     def test_add(self):
